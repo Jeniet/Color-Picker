@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker with Opacity Control</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Color Picker</h1>
+        <div class="color-preview">
+            <div id="colorBox" class="color-box" role="img" aria-label="Color preview" onclick="copyToClipboard('#hexValue')"></div>
+        </div>
+        <div class="controls">
+            <label for="colorPicker">Pick a color:</label>
+            <input type="color" id="colorPicker" aria-label="Pick a color" onchange="updateColors(event)">
+            <label for="opacityRange">Adjust opacity:</label>
+            <input type="range" id="opacityRange" min="0" max="1" step="0.01" value="1" onchange="updateOpacity(event)" aria-label="Adjust opacity">
+        </div>
+        <div class="color-info">
+            <p>HEX: <span id="hexValue">#ffffff</span></p>
+            <p>RGB: <span id="rgbValue">rgb(255, 255, 255)</span></p>
+            <p>RGBA: <span id="rgbaValue">rgba(255, 255, 255, 1)</span></p>
+        </div>
+        <div id="shadeSection" class="shade-variations hidden">
+            <h2>Shade Variations</h2>
+            <div id="shadeContainer"></div>
+        </div>
+        <div id="harmonySection" class="color-harmonies hidden">
+            <h2>Color Harmonies</h2>
+            <div id="harmonyContainer"></div>
+        </div>
+    </div>
+    <div id="message" class="message">HEX copied!</div>
+    <script src="script.js"></script>
+</body>
+</html>
